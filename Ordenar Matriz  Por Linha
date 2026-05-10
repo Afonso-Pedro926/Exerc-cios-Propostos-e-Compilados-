@@ -1,0 +1,43 @@
+algoritmo "ordenar_matriz_5x5_por_linhas"
+
+var
+   m: vetor[1..5, 1..5] de inteiro
+   i, j, k, aux: inteiro
+
+inicio
+
+   // leitura da matriz
+   escreval("Digite os valores da matriz 5x5:")
+   para i de 1 ate 5 faca
+      para j de 1 ate 5 faca
+         escreva("Elemento [", i, ",", j, "]: ")
+         leia(m[i, j])
+      fimpara
+   fimpara
+
+   // ordenação de cada linha
+   para i de 1 ate 5 faca
+      para j de 1 ate 4 faca
+         para k de j+1 ate 5 faca
+            se m[i, j] > m[i, k] entao
+               aux <- m[i, j]
+               m[i, j] <- m[i, k]
+               m[i, k] <- aux
+            fimse
+         fimpara
+      fimpara
+   fimpara
+
+   // saída da matriz ordenada
+   escreval("")
+   escreval("Matriz ordenada por linhas:")
+
+   para i de 1 ate 5 faca
+      para j de 1 ate 5 faca
+         escreva(m[i, j], " ")
+      fimpara
+      escreval("")
+   fimpara
+
+fimalgoritmo
+
