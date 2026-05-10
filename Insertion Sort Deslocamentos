@@ -1,0 +1,44 @@
+algoritmo "insertion_sort_deslocamentos"
+
+const
+   tam = 10
+
+var
+   v: vetor[1..tam] de inteiro
+   i, j, chave, deslocamentos: inteiro
+
+inicio
+
+   deslocamentos <- 0
+
+   // leitura do vetor
+   para i de 1 ate tam faca
+      escreva("Digite o valor ", i, ": ")
+      leia(v[i])
+   fimpara
+
+   // insertion sort
+   para i de 2 ate tam faca
+      chave <- v[i]
+      j <- i - 1
+
+      enquanto (j >= 1) e (v[j] > chave) faca
+         v[j + 1] <- v[j]
+         j <- j - 1
+         deslocamentos <- deslocamentos + 1
+      fimenquanto
+
+      v[j + 1] <- chave
+   fimpara
+
+   escreval("")
+   escreval("Vetor ordenado:")
+
+   para i de 1 ate tam faca
+      escreva(v[i], " ")
+   fimpara
+
+   escreval("")
+   escreval("Número de deslocamentos: ", deslocamentos)
+fimalgoritmo
+
